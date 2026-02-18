@@ -1,6 +1,10 @@
 import express from "express";  
-import { getWeb, getwebId } from "../controllers/web.controller.js";
+import { getWeb, getwebId, createWeb, updateWeb, deleteWeb } from "../controllers/web.controller.js";
+import { verifyToken, verifyAdmin } from "../middleware/auth.middleware.js";
 const router = express.Router();    
 router.get("/",getWeb);
 router.get("/:id",getwebId);
+router.post("/", verifyToken, verifyAdmin, createWeb);
+router.put("/:id", verifyToken, verifyAdmin, updateWeb);
+router.delete("/:id", verifyToken, verifyAdmin, deleteWeb);
 export default router;  

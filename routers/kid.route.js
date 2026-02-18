@@ -1,6 +1,10 @@
 import express from "express";  
-import { getKidId, getKids } from "../controllers/kid.controller.js";
+import { getKidId, getKids, createKid, updateKid, deleteKid } from "../controllers/kid.controller.js";
+import { verifyToken, verifyAdmin } from "../middleware/auth.middleware.js";
 const router = express.Router();    
 router.get("/",getKids);
 router.get("/:id",getKidId);
+router.post("/", verifyToken, verifyAdmin, createKid);
+router.put("/:id", verifyToken, verifyAdmin, updateKid);
+router.delete("/:id", verifyToken, verifyAdmin, deleteKid);
 export default router;  
