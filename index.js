@@ -6,6 +6,7 @@ import kidRoute from "./routers/kid.route.js";
 import webRoute from "./routers/web.route.js";  
 import cors from 'cors';
 import userRoute from "./routers/user.route.js";
+import adminRoute from "./routers/admin.route.js";
 
 const app = express();  
 dotenv.config();
@@ -29,6 +30,7 @@ app.use("/moviewatch", movieRoute);
 app.use("/kidwatch", kidRoute);
 app.use("/webwatch", webRoute);
 app.use("/user",userRoute);
+app.use("/admin", adminRoute); // added admin route
 
 app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`);
