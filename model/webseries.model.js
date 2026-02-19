@@ -4,7 +4,7 @@ const webSchema = new mongoose.Schema({
     year:Number,
     genre:String,
     language:String,
-    imdbrating:Number,
+    imdbRating:Number,
     img:String,
     description:String
 })
