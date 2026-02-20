@@ -24,6 +24,7 @@ export const signup = async(req, res)=>{
         isAdmin: isAdmin
       });
       await createdUser.save()
+      
       res.status(201).json({message:"Signup successfull", isAdmin});
     } catch (error) {
       console.log(error.message)
